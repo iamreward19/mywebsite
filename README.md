@@ -1,1 +1,606 @@
-# mywebsite
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TECHNOVA | Technology Showcase</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080d1b;
+    color: white;
+}
+
+/* NAVIGATION */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: rgba(8,13,27,0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #1d2945;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #00d9ff;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background:
+    radial-gradient(circle at 80% 50%, #163c68 0%, transparent 40%),
+    linear-gradient(135deg, #080d1b, #101c35);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.15;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #00d9ff;
+}
+
+.hero p {
+    color: #aebbd1;
+    line-height: 1.8;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.tag {
+    color: #00d9ff;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.btn {
+    display: inline-block;
+    background: #00bfe8;
+    color: #06101c;
+    padding: 14px 27px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-4px);
+}
+
+/* GENERAL SECTIONS */
+section {
+    padding: 75px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #9daac0;
+}
+
+/* FEATURE CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #111b30;
+    border: 1px solid #253653;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    border-color: #00d9ff;
+    box-shadow: 0 10px 35px #00bfff20;
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 23px;
+}
+
+.card-content h3 {
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.card-content p {
+    color: #aab6ca;
+    line-height: 1.7;
+    margin-bottom: 17px;
+}
+
+.category {
+    color: #00d9ff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* INNOVATION SECTION */
+.innovation {
+    background: #101a2e;
+}
+
+.innovation-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.innovation-box img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.innovation-box h2 {
+    font-size: 37px;
+    margin: 15px 0;
+}
+
+.innovation-box p {
+    color: #aab6ca;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+/* SEARCH AND FILTER */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.controls input {
+    padding: 13px;
+    background: #111b30;
+    border: 1px solid #34435e;
+    border-radius: 7px;
+    color: white;
+    width: 250px;
+}
+
+.controls button {
+    padding: 12px 18px;
+    border: 1px solid #00bfe8;
+    background: transparent;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.controls button:hover,
+.controls button.active {
+    background: #00bfe8;
+    color: #06101c;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 35px;
+    background: #050a14;
+    color: #8c9bb3;
+}
+
+footer span {
+    color: #00d9ff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 850px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .innovation-box {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #101a2e;
+        padding: 20px;
+    }
+
+    nav.show {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .hero {
+        padding: 70px 6%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="logo">TECHNOVA.</div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#gadgets">Gadgets</a>
+        <a href="#innovation">Innovations</a>
+        <a href="#future">Future Tech</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">DISCOVER THE FUTURE</div>
+
+        <h1>
+            Explore The World
+            Of <span>Technology.</span>
+        </h1>
+
+        <p>
+            Discover modern technologies, smart gadgets,
+            artificial intelligence, and groundbreaking
+            innovations that are changing the world.
+        </p>
+
+        <a href="#gadgets" class="btn">Explore Technology →</a>
+    </div>
+</section>
+
+<!-- GADGETS -->
+<section id="gadgets">
+
+    <div class="section-title">
+        <div class="tag">LATEST TECHNOLOGY</div>
+        <h2>Featured Gadgets</h2>
+        <p>Explore the latest devices and smart technology.</p>
+    </div>
+
+    <div class="controls">
+        <input type="text" id="search"
+        placeholder="Search gadgets..."
+        oninput="filterCards()">
+
+        <button class="active" onclick="setFilter('all',this)">All</button>
+        <button onclick="setFilter('mobile',this)">Mobile</button>
+        <button onclick="setFilter('computer',this)">Computers</button>
+        <button onclick="setFilter('wearable',this)">Wearables</button>
+    </div>
+
+    <div class="cards" id="productCards">
+
+        <div class="card" data-category="mobile">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=700"
+            alt="Modern smartphone">
+
+            <div class="card-content">
+                <div class="category">MOBILE TECHNOLOGY</div>
+                <h3>Smartphones</h3>
+                <p>
+                    Powerful mobile devices featuring
+                    advanced cameras, AI, and high-speed
+                    performance.
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-category="computer">
+            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700"
+            alt="Laptop computer">
+
+            <div class="card-content">
+                <div class="category">COMPUTER TECHNOLOGY</div>
+                <h3>Modern Laptops</h3>
+                <p>
+                    Experience high-performance computing,
+                    creative applications, and powerful
+                    productivity tools.
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-category="wearable">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700"
+            alt="Smart watch">
+
+            <div class="card-content">
+                <div class="category">WEARABLE TECHNOLOGY</div>
+                <h3>Smart Watches</h3>
+                <p>
+                    Stay connected with wearable devices
+                    that combine convenience, fitness,
+                    and smart features.
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-category="computer">
+            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=700"
+            alt="Gaming computer">
+
+            <div class="card-content">
+                <div class="category">GAMING TECHNOLOGY</div>
+                <h3>Gaming Systems</h3>
+                <p>
+                    Discover advanced graphics, immersive
+                    experiences, and next-generation gaming.
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-category="wearable">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700"
+            alt="Wireless headphones">
+
+            <div class="card-content">
+                <div class="category">AUDIO TECHNOLOGY</div>
+                <h3>Wireless Headphones</h3>
+                <p>
+                    Enjoy crystal-clear sound, wireless
+                    connectivity, and noise cancellation.
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-category="computer">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700"
+            alt="Electronic circuit board">
+
+            <div class="card-content">
+                <div class="category">ELECTRONICS</div>
+                <h3>Smart Components</h3>
+                <p>
+                    Explore advanced electronic hardware,
+                    processors, and innovative circuits.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- INNOVATIONS -->
+<section class="innovation" id="innovation">
+
+    <div class="innovation-box">
+
+        <div>
+            <div class="tag">THE NEXT GENERATION</div>
+
+            <h2>Innovation Is Shaping Our Future</h2>
+
+            <p>
+                Technology continues to transform our daily
+                lives. Artificial intelligence, robotics,
+                automation, and smart devices are opening
+                new opportunities for humanity.
+            </p>
+
+            <a href="#future" class="btn">
+                Discover More →
+            </a>
+        </div>
+
+        <img
+        src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=900"
+        alt="Modern robotics and artificial intelligence">
+    </div>
+</section>
+
+<!-- FUTURE TECHNOLOGY -->
+<section id="future">
+
+    <div class="section-title">
+        <div class="tag">TOMORROW STARTS TODAY</div>
+        <h2>Future Technologies</h2>
+        <p>Discover innovations that are transforming the world.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=700"
+            alt="Artificial intelligence">
+
+            <div class="card-content">
+                <div class="category">ARTIFICIAL INTELLIGENCE</div>
+                <h3>AI Technology</h3>
+                <p>
+                    Intelligent systems that learn, analyze
+                    information, and help solve complex problems.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=700"
+            alt="Virtual reality technology">
+
+            <div class="card-content">
+                <div class="category">VIRTUAL REALITY</div>
+                <h3>Virtual Reality</h3>
+                <p>
+                    Experience immersive digital environments
+                    through advanced virtual reality systems.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700"
+            alt="Digital global technology">
+
+            <div class="card-content">
+                <div class="category">CONNECTED WORLD</div>
+                <h3>Internet of Things</h3>
+                <p>
+                    Smart connected devices communicate
+                    and make everyday environments more efficient.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>TECHNOVA<span>.</span></h2>
+    <p>Explore Technology. Discover Innovation. Shape the Future.</p>
+    <br>
+    <p>© 2026 TECHNOVA. All Rights Reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navigation")
+    .classList.toggle("show");
+}
+
+let currentFilter = "all";
+
+function setFilter(category, button) {
+    currentFilter = category;
+
+    document.querySelectorAll(".controls button")
+    .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+    filterCards();
+}
+
+function filterCards() {
+    const search = document.getElementById("search")
+    .value.toLowerCase();
+
+    document.querySelectorAll("#productCards .card")
+    .forEach(card => {
+        const category = card.dataset.category;
+        const text = card.innerText.toLowerCase();
+
+        const matchesCategory =
+            currentFilter === "all" ||
+            category === currentFilter;
+
+        const matchesSearch = text.includes(search);
+
+        card.style.display =
+            matchesCategory && matchesSearch
+            ? "block" : "none";
+    });
+}
+</script>
+
+</body>
+</html>
